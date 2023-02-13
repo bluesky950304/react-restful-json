@@ -10,6 +10,9 @@ export default function EmpCreate() {
     const [email, emailchange] = useState("");
     const [phone, phonechange] = useState("");
     const [active, activechange] = useState(true);
+    const [validate, validatechange] = useState(false);
+
+
     const navigate=useNavigate();
 
     const handlesubmit=(e)=>{
@@ -52,7 +55,8 @@ export default function EmpCreate() {
                                     <div className='col-lg-12'>
                                         <div className='form-group'>
                                             <label>Name</label>
-                                            <input value={name} onChange={e => namechange(e.target.value)} className='form-control'></input>
+                                            <input required  value={name} onMouseDown={e => validatechange(true)}  onChange={e => namechange(e.target.value)} className='form-control'></input>
+                                         {name.length==0 && validate && <span className='text-danger'>Enter the name</span>}
                                         </div>
                                     </div>
 
