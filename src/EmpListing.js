@@ -1,10 +1,21 @@
 import React, { useEffect , useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function EmpListing() {
 
    const[empdata, setEmpdata] = useState(null);
+   const navigate=useNavigate();
+
+   const LoadDetail=(id) => {
+      navigate('/employee/detail/')
+   }
+   const LoadEdit=(id)=> {
+     navigate('/employee/edit/'+id)
+   }
+   const RemoveFunction=(id)=> {
+
+   } 
 
    useEffect(() => {
       fetch("http://localhost:8000/employee").then((res) => {
@@ -46,9 +57,9 @@ export default function EmpListing() {
                         <td>{item.email}</td>
                         <td>{item.phone}</td>
                         <td>
-                           <a className="btn btn-success">Edit</a>
-                           <a className="btn btn-danger">Remove</a>
-                           <a className="btn btn-primary">Details</a>
+                           <a onClick={()=> {LoadEdit(item.id)}} className="btn btn-success">Edit</a>
+                           <a onClick={()=> {RemoveFunction(item.id)}} className="btn btn-danger">Remove</a>
+                           <a onClick={()=> {LoadDetail(item.id)}} className="btn btn-primary">Details</a>
                         </td>
                      </tr>
                     ))
