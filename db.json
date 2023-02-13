@@ -1,0 +1,24 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "jhon",
+      "email": "jhon@in.com",
+      "phone": "1234567890"
+    },
+    {
+      "name": "Davit",
+      "email": "networkdavit@gmail.com",
+      "phone": "8 (374) 440-74-37",
+      "active": true,
+      "id": 2
+    },
+    {
+      "name": "Hasmik Minasyan",
+      "email": "hasmikminasyan.1979@gmail.com",
+      "phone": "+37477074377",
+      "active": true,
+      "id": 3
+    }
+  ]
+}
