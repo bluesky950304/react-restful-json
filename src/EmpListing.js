@@ -1,21 +1,30 @@
-import React, { useEffect , useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function EmpListing() {
 
-   const[empdata, setEmpdata] = useState(null);
-   const navigate=useNavigate();
+   const [empdata, setEmpdata] = useState(null);
+   const navigate = useNavigate();
 
-   const LoadDetail=(id) => {
-      navigate('/employee/detail/')
+   const LoadDetail = (id) => {
+      navigate('/employee/detail/' + id)
    }
-   const LoadEdit=(id)=> {
-     navigate('/employee/edit/'+id)
+   const LoadEdit = (id) => {
+      navigate('/employee/edit/' + id)
    }
-   const RemoveFunction=(id)=> {
-
-   } 
+   const RemoveFunction = (id) => {
+      if (window.confirm('Do you want to remove?')) {
+         fetch("http://localhost:8000/employee/" + id, {
+            method: "DELETE",
+         }).then((res) => {
+            alert('Removed successfully.')
+            window.location.reload();
+         }).catch((err) => {
+            console.log(err.message)
+         })
+      }
+   }
 
    useEffect(() => {
       fetch("http://localhost:8000/employee").then((res) => {
@@ -48,22 +57,22 @@ export default function EmpListing() {
                      </tr>
                   </thead>
                   <tbody >
-                    {
-                    empdata  &&  empdata.map(item => (
-                     <tr key={item.id}>
+                     {
+                        empdata && empdata.map(item => (
+                           <tr key={item.id}>
 
-                        <td>{item.id}</td>
-                        <td>{item.name}</td>
-                        <td>{item.email}</td>
-                        <td>{item.phone}</td>
-                        <td>
-                           <a onClick={()=> {LoadEdit(item.id)}} className="btn btn-success">Edit</a>
-                           <a onClick={()=> {RemoveFunction(item.id)}} className="btn btn-danger">Remove</a>
-                           <a onClick={()=> {LoadDetail(item.id)}} className="btn btn-primary">Details</a>
-                        </td>
-                     </tr>
-                    ))
-                    }
+                              <td>{item.id}</td>
+                              <td>{item.name}</td>
+                              <td>{item.email}</td>
+                              <td>{item.phone}</td>
+                              <td>
+                                 <a onClick={() => { LoadEdit(item.id) }} className="btn btn-success">Edit</a>
+                                 <a onClick={() => { RemoveFunction(item.id) }} className="btn btn-danger">Remove</a>
+                                 <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a>
+                              </td>
+                           </tr>
+                        ))
+                     }
                   </tbody>
                </table>
             </div>
