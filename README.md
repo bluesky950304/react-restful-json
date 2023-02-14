@@ -8,7 +8,7 @@ npm start
 ### Json-server
 
 ```
-npm i json-server --watch db.json --port 8000
+json-server --watch db.json --port 8000
 ```
 ![Screenshot_1](https://user-images.githubusercontent.com/95657084/218779030-c1b017ed-0f70-4b15-8a9e-1f10d6fa0e58.png)
 
