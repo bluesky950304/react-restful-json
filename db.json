@@ -2,30 +2,21 @@
   "employee": [
     {
       "id": 1,
-      "name": "jhon",
-      "email": "jhon@in.com",
+      "name": "Jenya",
+      "email": "Jenya@gmail.com",
       "phone": "1234567890"
     },
     {
-      "name": "Davit",
-      "email": "networkdavit@gmail.com",
-      "phone": "8 (374) 440-74-37",
-      "active": true,
-      "id": 2
+      "id": 2,
+      "name": "Hasmik ",
+      "email": "hasmik@gmail.com",
+      "phone": "987654321"
     },
     {
-      "name": "Hasmik Minasyan",
-      "email": "hasmikminasyan.1979@gmail.com",
-      "phone": "+37477074377",
-      "active": true,
-      "id": 3
-    },
-    {
-      "name": "",
-      "email": "sdfgg",
-      "phone": "123344",
-      "active": true,
-      "id": 4
+      "id": 3,
+      "name": "Ani",
+      "email": "Ani@gmail.com",
+      "phone": "123123123"
     }
   ]
 }
